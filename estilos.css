@@ -1,0 +1,103 @@
+body{
+    font-family: Arial,sans-serif;
+}
+
+.cabecera{
+    position: fixed;
+    left: 0;
+    top: 0;
+    background-color: gray;
+    width: 100%;
+    text-align: center;
+}
+
+.cabecera ul{
+    list-style-type: none;
+}
+.cabecera li {
+    margin-left: 10px;
+    display: inline;
+}
+.cabecera a{
+    text-decoration: none;
+    color: white;
+}
+
+.cabecera a:hover{
+    color: darkseagreen;
+}
+
+.pie {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    color: white;
+    background-color: darkseagreen;
+}
+
+.contenedor-OSI {
+    text-align: center;
+    width: 50%;
+    margin: 80px auto 0;
+}
+.contenedor-OSI table{
+    margin: auto auto;
+}
+.contenedor-OSI td {
+    padding: 20px;
+    box-shadow: 1px 1px .5px gray;
+}
+.contenedor-OSI td:hover{
+    background-color: white;
+    color: black;
+    cursor: alias;
+}
+.aplicacion {
+
+    background-color: lightgreen;
+    color: black;
+}
+
+.presentacion {
+    background-color: mediumseagreen;
+    color: black;
+}
+
+.sesion {
+    background-color: darkseagreen;
+    color: black;
+}
+
+.transporte {
+    background-color: olive;
+    color: white;
+}
+
+.red {
+    background-color: green;
+    color: white;
+}
+.enlace {
+    background-color: darkolivegreen;
+    color: white;
+}
+.fisica {
+    background-color: darkgreen;
+    color: white;
+}
+
+.contenedor {
+    text-align: center;
+    width: 50%;
+    margin: 80px auto 0;
+    color: darkslategray;
+}
+
+.contenedor-Respuesta {
+    text-align: center;
+    width: 50%;
+    margin: 80px auto 0;
+    color: darkred;
+}
