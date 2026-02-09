@@ -20,6 +20,8 @@
         <form method="post" action="red.php">
             <label for="direccionIP">dirección IP</label>
             <input name="direccionIP" id="direccionIP" type="text">
+            <label for="mascara">Máscara de red formato /</label>
+            <input name="mascara" id="mascara" type="text">
             <input type="submit" name="enviar" id="enviar" value="calcular">
         </form>
     </section>
@@ -29,16 +31,29 @@
         {
             return filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV4) !== false;
         }
-        if(isset($_POST['direccionIP'])){
+        if(isset($_POST['direccionIP'])&&isset($_POST['mascara'])){
             $direccionIP = $_POST['direccionIP'];
+            $mascara = $_POST['mascara'];
             if(esIPv4Valida($direccionIP)){
                 $bytes = explode('.', $direccionIP,4);
                 if($bytes[0] < 128){
-                    echo "<p>La dirección de red es $bytes[0].0.0.0 </p>";
+                    if ($mascara == 8){
+                        echo "<p>La dirección de red es $bytes[0].0.0.0 </p>";
+                    }else{
+                        echo "<p>La máscara no coincide con la clase</p>";
+                    }
                 } elseif ( $bytes[0] < 192) {
-                    echo "<p>La dirección de red es $bytes[0].$bytes[1].0.0 </p>";
+                    if ($mascara == 16){
+                        echo "<p>La dirección de red es $bytes[0].$bytes[1].0.0 </p>";
+                    }else{
+                        echo "<p>La máscara no coincide con la clase</p>";
+                    }
                 } elseif ( $bytes[0] < 224) {
-                    echo "<p>La dirección de red es $bytes[0].$bytes[1].$bytes[2].0 </p>";
+                    if ($mascara == 24){
+                        echo "<p>La dirección de red es $bytes[0].$bytes[1].$bytes[2].0 </p>";
+                    }else{
+                        echo "<p>La máscara no coincide con la clase</p>";
+                    }
                 } else{
                     echo '<p>La dirección IP es de clase <strong>D</strong> o <strong>E</strong></p>';
                 }
